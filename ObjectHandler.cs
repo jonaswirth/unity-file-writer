@@ -10,25 +10,30 @@ public static class ObjectHandler {
 
     private static string _defaultPath = Application.persistentDataPath;
 
-    public static void WriteObject<T>(T obj, string fileName, string path = null, FileTypes fileType = FileTypes.JSON)
+    public static void WriteObject<T>(T obj, string fileName, string path = null, FileType fileType = FileType.Json)
     {
         path = GetFilePath(path, fileName);
 
         switch (fileType)
         {
-            case FileTypes.Binary: WriteBinary(obj, path);break;
+            case FileType.Binary: WriteBinary(obj, path);break;
+            case FileType.Json: WriteJson(obj, path);break;
+            case FileType.Xml: WriteXml(obj, path);break;
+            default: throw new NotSupportedException("The provided file type is not supported for this operation.");
         }
     }
 
-    public static T ReadObject<T>(string fileName, string path = null, FileTypes fileType = FileTypes.JSON)
+    public static T ReadObject<T>(string fileName, string path = null, FileType fileType = FileType.Json)
     {
         path = GetFilePath(path, fileName);
 
         switch (fileType)
         {
-            case FileTypes.Binary: return ReadBinary<T>(path);
+            case FileType.Binary: return ReadBinary<T>(path);
+            case FileType.Json: return ReadJson<T>(path);
+            case FileType.Xml: return ReadXml<T>(path);
+            default: throw new NotSupportedException("The provided file type is not supported for this operation.");
         }
-        return default(T);
     }
 
     private static void WriteBinary(object obj, string path)
@@ -55,6 +60,16 @@ public static class ObjectHandler {
     }
 
     private static T ReadJson<T>(string path)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void WriteXml(object obj, string path)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static T ReadXml<T>(string path)
     {
         throw new NotImplementedException();
     }

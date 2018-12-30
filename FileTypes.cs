@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FileTypes {
+public enum FileType {
     PlainText,
-    XML,
-    JSON,
+    Xml,
+    Json,
     Binary
 }

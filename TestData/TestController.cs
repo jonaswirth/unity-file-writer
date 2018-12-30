@@ -8,11 +8,11 @@ public class TestController : MonoBehaviour {
 
     public void SaveObj()
     {
-        ObjectHandler.WriteObject<TestObj>(testObj, "testObj.xyz", fileType: FileTypes.Binary);
+        ObjectHandler.WriteObject<TestObj>(testObj, "testObj.xyz", fileType: FileType.Binary);
     }
 
     public void LoadObj()
     {
-        testObj = ObjectHandler.ReadObject<TestObj>("testObj.xyz", fileType: FileTypes.Binary);
+        testObj = ObjectHandler.ReadObject<TestObj>("testObj.xyz", fileType: FileType.Binary);
     }
 }
