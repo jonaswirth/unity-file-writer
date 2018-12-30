@@ -56,12 +56,18 @@ public static class ObjectHandler {
 
     private static void WriteJson(object obj, string path)
     {
-        throw new NotImplementedException();
+       using(StreamWriter stream = new StreamWriter(path, false))
+       {
+            stream.Write(JsonUtility.ToJson(obj).ToCharArray());
+       }
     }
 
     private static T ReadJson<T>(string path)
     {
-        throw new NotImplementedException();
+        using(StreamReader reader = new StreamReader(path))
+        {
+            return JsonUtility.FromJson<T>(reader.ReadToEnd());
+        }
     }
 
     private static void WriteXml(object obj, string path)
