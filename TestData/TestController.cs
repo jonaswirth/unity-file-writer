@@ -8,7 +8,7 @@ public class TestController : MonoBehaviour {
 
     public void SaveObj()
     {
-        ObjectHandler.WriteObject<TestObj>(testObj, "testObj.json", fileType: FileType.Json);
+        ObjectHandler.WriteObject(testObj, "testObj.json", fileType: FileType.Json);
     }
 
     public void LoadObj()

@@ -10,7 +10,7 @@ public static class ObjectHandler {
 
     private static string _defaultPath = Application.persistentDataPath;
 
-    public static void WriteObject<T>(T obj, string fileName, string path = null, FileType fileType = FileType.Json)
+    public static void WriteObject(object obj, string fileName, string path = null, FileType fileType = FileType.Json)
     {
         path = GetFilePath(path, fileName);
 
@@ -87,5 +87,4 @@ public static class ObjectHandler {
 
         return Path.Combine(path, fileName);
     }
-
 }
